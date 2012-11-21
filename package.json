@@ -1,0 +1,16 @@
+{
+	"description": "Nginx utility that allows to Create List Enable Disable available sites",
+	"version": "0.0.1",
+	"private": true,
+	"dependencies": {
+		"flatiron": "0.2.8"
+	},
+	"name": "nginx-utility",
+	"author": "Yani Iliev",
+	"homepage": "http://time.ly",
+	"repository": {
+		"type" : "git",
+		"url" : "git@github.com:yani-/nginx-utility.git"
+	},
+	"bin" : { "nginx-utility" : "./bin/nginx-utility.js" }
+}
