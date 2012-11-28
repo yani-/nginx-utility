@@ -40,7 +40,7 @@ app.cmd( 'create', function () {
 	app.prompt.get( 'Domain name(domain.tld)', function ( err, result ) {
 		domain = result['Domain name(domain.tld)'];
 		app.prompt.get( 'Subdomain name("subdomain".domain.tld or empty)', function ( err, result ) {
-			subdomain = result['Subdomain name(subdomain.domain.tld or empty)'];
+			subdomain = result['Subdomain name("subdomain".domain.tld or empty)'];
 			app.prompt.get( 'Template(wordpress,php,nodejs)', function ( err, result ) {
 				template = result['Template(wordpress,php,nodejs)'];
 				switch ( template ) {
