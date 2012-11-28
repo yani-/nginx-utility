@@ -11,6 +11,8 @@ var wordpress_template = __dirname + '/../templates/wordpress-template.conf';
 var php_template = __dirname + '/../templates/php-template.conf';
 var nodejs_template = __dirname + '/../templates/nodejs-template.conf';
 
+var wwwroot = '/var/www/domains';
+
 var display_error = function( err ) {
 	app.log.error( err );
 	return process.exit(1);
@@ -37,7 +39,7 @@ app.cmd( 'create', function () {
 	var template = '';
 	app.prompt.get( 'Domain name(domain.tld)', function ( err, result ) {
 		domain = result['Domain name(domain.tld)'];
-		app.prompt.get( 'Subdomain name(subdomain.domain.tld or empty)', function ( err, result ) {
+		app.prompt.get( 'Subdomain name("subdomain".domain.tld or empty)', function ( err, result ) {
 			subdomain = result['Subdomain name(subdomain.domain.tld or empty)'];
 			app.prompt.get( 'Template(wordpress,php,nodejs)', function ( err, result ) {
 				template = result['Template(wordpress,php,nodejs)'];
@@ -81,10 +83,10 @@ var create_site = function( domain, subdomain, template ) {
 			server_name_r = 'server_name ' + filename;
 			root_r = 'root /var/www/domains/' + domain + '/subdomains/' + subdomain + '/http';
 			root_path = [
-				'/www/domains/' + domain,
-				'/www/domains/' + domain + '/subdomains',
-				'/www/domains/' + domain + '/subdomains/' + subdomain,
-				'/www/domains/' + domain + '/subdomains/' + subdomain + '/http'
+				wwwroot + '/' + domain,
+				wwwroot + '/' + domain + '/subdomains',
+				wwwroot + '/' + domain + '/subdomains/' + subdomain,
+				wwwroot + '/' + domain + '/subdomains/' + subdomain + '/http'
 			];
 			access_log_r = 'access_log /var/log/nginx/' + filename + '.log';
 			error_log_r = 'error_log /var/log/nginx/' + filename + '.error.log';
@@ -93,8 +95,8 @@ var create_site = function( domain, subdomain, template ) {
 			server_name_r = 'server_name ' + filename;
 			root_r = 'root /var/www/domains/' + filename + '/http';
 			root_path = [
-				'/www/domains/' + filename,
-				'/www/domains/' + filename + '/http'
+				wwwroot + '/' + filename,
+				wwwroot + '/' + filename + '/http'
 			];
 			access_log_r = 'access_log /var/log/nginx/' + filename + '.log';
 			error_log_r = 'error_log /var/log/nginx/' + filename + '.error.log';
