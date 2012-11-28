@@ -7,9 +7,9 @@ var fs = require( 'fs' );
 var sites_enabled_dir = '/etc/nginx/sites-enabled';
 var sites_available_dir = '/etc/nginx/sites-available';
 
-var wordpress_template = '../templates/wordpress-template.conf';
-var php_template = '../templates/php-template.conf';
-var nodejs_template = '../templates/nodejs-template.conf';
+var wordpress_template = __dirname + '/../templates/wordpress-template.conf';
+var php_template = __dirname + '/../templates/php-template.conf';
+var nodejs_template = __dirname + '/../templates/nodejs-template.conf';
 
 var display_error = function( err ) {
 	app.log.error( err );
