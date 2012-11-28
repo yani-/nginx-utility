@@ -1,6 +1,6 @@
 {
 	"description": "Nginx utility that allows to Create List Enable Disable available sites",
-	"version": "1.1.1",
+	"version": "1.1.2",
 	"private": true,
 	"dependencies": {
 		"flatiron": "0.2.8"
